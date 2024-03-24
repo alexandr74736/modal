@@ -1,9 +1,9 @@
 <template>
     <div class="modal__content">
         <div class="modal__content-header" ref="modalContentHeaderRef">
-            <p class="modal__content-title">
+            <h5 class="modal__content-title">
                 {{ props.title }}
-            </p>
+            </h5>
             <p class="modal__content-description body-default" v-if="description">
                 {{ props.description }}
             </p>

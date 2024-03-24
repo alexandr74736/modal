@@ -39,7 +39,7 @@ const props = defineProps({
         required: true
     },
     modalContent: {
-        type: Object,
+        type: Object || null,
         required: false
     },
     shadow: {

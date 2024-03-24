@@ -1,8 +1,8 @@
 <template>
   <header>
-    <div class="wrapper">
-      <h1>Здесь мог быть ваш хеддер</h1>
-    </div>
+    <section class="wrapper">
+      <h1>Здесь мог быть ваш хедер</h1>
+    </section>
   </header>
 
   <main class="main">
@@ -15,38 +15,45 @@
   </main>
 
   <footer>
-    <div class="wrapper">
-      <p>Здесь мог быть ваш футер</p>
-    </div>
+    <section class="wrapper">
+      <h6>Здесь мог быть ваш футер</h6>
+    </section>
   </footer>
 
   <ModalComponent :class="storeModals.organisations ? 'global--visibility-visible' : 'global--visibility-hidden'"
-    name="organisations" :shadow="true" title="Организация" :modalContent="modalContent" />
+    name="organisations" :shadow="true" title="Организация" :modalContent="modalHasContent" />
 </template>
 
 <script setup lang="ts">
 import ModalComponent from './components/ModalComponent.vue'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useModalsStore } from '@/stores/modals'
 
 const storeModals = useModalsStore()
-const modalContent = ref({
-  title: "Title",
-  submit: "Тестовая кнопка",
-  description: "Описание"
+const modalContent = ref<object | null>({
+  // Пример входных данных
+  // title: "Title",
+  // submit: "Тестовая кнопка",
+  // description: "Описание"
 })
+
+const modalHasContent = computed<object | null>(() => {
+  if (modalContent.value && Object.keys(modalContent.value).length) {
+    return modalContent.value
+  } else return null
+}) as object || null;
 </script>
 
 <style scoped lang="scss">
 @import "@/assets/scss/general";
 
-main {
+.main {
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-section {
+.section {
   display: flex;
   flex-direction: column;
   align-items: center;
