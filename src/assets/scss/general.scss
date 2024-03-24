@@ -1,0 +1,215 @@
+@import "variables";
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*:focus {
+    outline: none;
+}
+
+html {
+    line-height: unset;
+}
+
+body {
+    font-family: $font-primary;
+    font-size: 16px;
+    background: lightgray;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-family: $font-primary;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+h4 {
+    //styleName: H/4;
+    font-family: $font-primary;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+}
+
+.body-default {
+    font-family: $font-primary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+}
+
+.global {
+    &--visibility-hidden {
+
+        transition: transform .5s, opacity .5s, visibility .5s;
+        opacity: 0;
+        visibility: hidden;
+
+        & .modal {
+            transform: translateX(-100%);
+            transition: transform .5s;
+
+            @include break-lg() {
+                transform: translateY(100%);
+            }
+        }
+    }
+
+    &--visibility-visible {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity .5s, transform .5s;
+
+        & .modal {
+            transform: translateX(0%);
+            transition: transform .5s;
+
+            @include break-lg() {
+                transform: translateY(0%);
+            }
+        }
+
+    }
+
+    &--no-scroll {
+        overflow: hidden;
+    }
+}
+
+.btn {
+    cursor: pointer;
+
+    &:hover {
+        opacity: .7;
+    }
+
+    &:focus {
+        opacity: .4;
+    }
+}
+
+.p-regular {
+    //styleName: paragraph-regular/16;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.p-medium {
+    //styleName: paragraph-medium/14;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+#app {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-weight: normal;
+
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a,
+.green {
+    text-decoration: none;
+    color: hsla(160, 100%, 37%, 1);
+    transition: 0.4s;
+    padding: 3px;
+}
+
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+    --vt-c-white: #ffffff;
+    --vt-c-white-soft: #f8f8f8;
+    --vt-c-white-mute: #f2f2f2;
+
+    --vt-c-black: #181818;
+    --vt-c-black-soft: #222222;
+    --vt-c-black-mute: #282828;
+
+    --vt-c-indigo: #2c3e50;
+
+    --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+    --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+    --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+    --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+    --vt-c-text-light-1: var(--vt-c-indigo);
+    --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+    --vt-c-text-dark-1: var(--vt-c-white);
+    --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+}
+
+/* semantic color variables for this project */
+:root {
+    --color-background: var(--vt-c-white);
+    --color-background-soft: var(--vt-c-white-soft);
+    --color-background-mute: var(--vt-c-white-mute);
+
+    --color-border: var(--vt-c-divider-light-2);
+    --color-border-hover: var(--vt-c-divider-light-1);
+
+    --color-heading: var(--vt-c-text-light-1);
+    --color-text: var(--vt-c-text-light-1);
+
+    --section-gap: 160px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: var(--vt-c-black);
+        --color-background-soft: var(--vt-c-black-soft);
+        --color-background-mute: var(--vt-c-black-mute);
+
+        --color-border: var(--vt-c-divider-dark-2);
+        --color-border-hover: var(--vt-c-divider-dark-1);
+
+        --color-heading: var(--vt-c-text-dark-1);
+        --color-text: var(--vt-c-text-dark-2);
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-weight: normal;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--color-text);
+    background: var(--color-background);
+    transition:
+        color 0.5s,
+        background-color 0.5s;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

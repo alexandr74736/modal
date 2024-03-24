@@ -1,0 +1,80 @@
+//fonts
+$font-primary: "Roboto", sans-serif;
+
+//colors
+$true-white: #FFF;
+$true-black: #000;
+
+$text-main-dark: #353535;
+
+$text-blue: #045CC4;
+
+$bg-blue: #E8F2FE;
+$bg-secondary: #00000040;
+
+$shade: #181818;
+
+$border-modal: #EDEDED;
+$shadow-modal: 0px 4px 8px 0px #0000000A;
+
+//breakpoints
+$xsm: 390px;
+$sm: 576px;
+$md: 768px;
+$lg: 993px;
+$xl: 1280px;
+$xxl: 1440px;
+
+@mixin break-xsm() {
+    @media (max-width: ($xsm - 1)) {
+        @content;
+    }
+}
+
+@mixin break-sm() {
+    @media (max-width: ($sm - 1)) {
+        @content;
+    }
+}
+
+@mixin break-md() {
+    @media (max-width: ($md - 1)) {
+        @content;
+    }
+}
+
+@mixin break-lg() {
+    @media (max-width: ($lg - 1)) {
+        @content;
+    }
+}
+
+@mixin break-xl() {
+    @media (max-width: ($xl - 1)) {
+        @content;
+    }
+}
+
+@mixin break-xxl() {
+    @media (max-width: ($xxl - 1)) {
+        @content;
+    }
+}
+
+@mixin break-sm-up() {
+    @media (min-width: $sm) {
+        @content;
+    }
+}
+
+@mixin break-lg-up() {
+    @media (min-width: $lg) {
+        @content;
+    }
+}
+
+@mixin break-xxl-up() {
+    @media (min-width: $xxl) {
+        @content;
+    }
+}
