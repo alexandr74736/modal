@@ -1,5 +1,5 @@
 <template>
-    <aside class="modal-wrapper" ref="modalRef">
+    <dialog open class="modal-wrapper" ref="modalRef">
         <div class="modal" :class="modal.modalName">
             <div class="modal__header">
                 <h4 class="modal__title">{{ props.title }}</h4>
@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="modal__shadow" v-if="!modal.isMobile && shadow"></div>
-    </aside>
+    </dialog>
 </template>
 
 <script setup lang="ts">
